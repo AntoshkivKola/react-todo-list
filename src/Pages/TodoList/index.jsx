@@ -16,7 +16,7 @@ const TodoList = () => {
       <div>
         <NewTodoTask todoList={todoList}  setTodoList={setTodoList}/>
 
-        <TodoTasksList todoList={todoList} />
+        <TodoTasksList todoList={todoList} setTodoList={setTodoList} />
       </div>
     </TodoListContext.Provider>
   );
