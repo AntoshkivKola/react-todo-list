@@ -1,8 +1,8 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { Formik, Field, Form } from 'formik';
 import { TODO_TASK_SCHEMA } from 'utils/validationSchemas';
-import { TodoListContext } from 'context';
+import styles from './NewTodoTask.module.scss';
 
 const initialValues = {
   newTask: '',
@@ -29,9 +29,9 @@ const NewTodoTask = props => {
       validationSchema={TODO_TASK_SCHEMA}
       onSubmit={onSubmit}
     >
-      <Form>
-        <Field name='newTask' />
-        <Field name='submit' type='submit' />
+      <Form className={styles.newTask}>
+        <Field className={styles.input} name='newTask' />
+        <Field className={styles.add} name='submit' type='submit' value="+" />
       </Form>
     </Formik>
   );
