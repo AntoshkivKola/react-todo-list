@@ -4,7 +4,7 @@ import styles from './Task.module.scss';
 import cx from 'classnames';
 
 const Task = props => {
-  const { task, todoList, setTodoList } = props;
+  const {id, task, todoList, setTodoList } = props;
 
   const handleChange = id => {
     return ({ target: { checked } }) => {
@@ -26,7 +26,7 @@ const Task = props => {
   };
   
   return (
-    <li className={styles.task} key={task.id}>
+    <li className={styles.task} key={id}>
       <div>
         <input
           type='checkbox'
@@ -48,7 +48,10 @@ const Task = props => {
 };
 
 Task.propTypes = {
-
+  id: PropTypes.number.isRequired,
+  task: PropTypes.object.isRequired,
+  setTodoList: PropTypes.func.isRequired,
+  todoList: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export default Task;

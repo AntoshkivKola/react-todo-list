@@ -14,12 +14,14 @@ const TodoTasksList = props => {
   return (
     <ul className={classNamesTaskList} >
       {todoList.map((task) => (
-         <Task task={task} todoList={todoList} setTodoList={setTodoList}/>
+         <Task task={task} todoList={todoList} setTodoList={setTodoList} key={task.id}/>
       ))}
     </ul>
   );
 };
 
-TodoTasksList.propTypes = {};
-
+TodoTasksList.propTypes = {
+  setTodoList: PropTypes.func.isRequired,
+  todoList: PropTypes.arrayOf(PropTypes.object).isRequired,
+};
 export default TodoTasksList;

@@ -1,12 +1,10 @@
-import React, { useContext, useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
+import React, { useState } from 'react';
 import styles from './TodoList.module.scss';
 import NewTodoTask from 'components/NewTodoTask';
 import TodoTasksList from 'components/TodoTasksList';
 import { TodoListContext } from 'context';
-import { tasks } from 'tasks';
 
-const TodoList = () => {
+const TodoList = props => {
   const [todoList, setTodoList] = useState([]);
 
   return (
@@ -20,7 +18,5 @@ const TodoList = () => {
     </TodoListContext.Provider>
   );
 };
-
-TodoList.propTypes = {};
 
 export default TodoList;

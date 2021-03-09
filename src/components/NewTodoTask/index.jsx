@@ -30,13 +30,20 @@ const NewTodoTask = props => {
       onSubmit={onSubmit}
     >
       <Form className={styles.newTask}>
-        <Field className={styles.input} name='newTask' placeholder='Enter new task' />
-        <Field className={styles.add} name='submit' type='submit' value="+" />
+        <Field
+          className={styles.input}
+          name='newTask'
+          placeholder='Enter new task'
+        />
+        <Field className={styles.add} name='submit' type='submit' value='+' />
       </Form>
     </Formik>
   );
 };
 
-NewTodoTask.propTypes = {};
+NewTodoTask.propTypes = {
+  setTodoList: PropTypes.func.isRequired,
+  todoList: PropTypes.arrayOf(PropTypes.object).isRequired,
+};
 
 export default NewTodoTask;
