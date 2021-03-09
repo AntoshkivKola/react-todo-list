@@ -1,0 +1,29 @@
+.removeTask {
+  cursor: pointer;
+  font-size: inherit;
+  border: none;
+  background-color: transparent;
+  color: rgb(255, 0, 13);
+  // visibility: hidden;
+  text-decoration: none;
+}
+
+.task {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+  position: relative;
+  &::after {
+    content: ' ';
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    border-top: 1px solid rgb(24, 24, 24);
+  }
+}
+
+.isDone {
+  color: rgb(255, 0, 13);
+  text-decoration: line-through;
+}

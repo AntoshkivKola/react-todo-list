@@ -1,0 +1,15 @@
+.taskList {
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+  background-color: white;
+  color: rgb(58, 58, 58);
+  font-size: 1.3rem;
+  list-style-type: none;
+  padding: 20px;
+}
+.isEmpty {
+  visibility: hidden;
+}
+
+

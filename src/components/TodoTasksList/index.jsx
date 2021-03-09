@@ -1,43 +1,20 @@
-import React, {  } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-
-
+import styles from './TodoTasksList.module.scss';
+import cx from 'classnames';
+import Task from 'components/Task';
 
 const TodoTasksList = props => {
   const { todoList, setTodoList } = props;
- 
-  const handleChange = id => {
-    return ({ target: { checked } }) => {
-      const newTodoList = [...todoList];
-      for (const task of newTodoList) {
-        task.isDone = task.id === id ? checked : task.isDone;
-      }
 
-      setTodoList(newTodoList);
-    };
-  };
+  const classNamesTaskList = cx(styles.taskList, {
+    [styles.isEmpty]: !Boolean(todoList.length),
+  });
 
-  const handleClick = id => {
-    return () => {
-      const newTodoList = [...todoList].filter(todo => todo.id !== id);
-
-      setTodoList(newTodoList);
-    };
-  };
   return (
-    <ul>
-      {todoList.map((task, index) => (
-        <li key={`${task.value}-${index}`}>
-          <input
-            type='checkbox'
-            name='isDone'
-            value={index}
-            checked={task.isDone}
-            onChange={handleChange(task.id)}
-          />
-          {task.value}
-          <button onClick={handleClick(task.id)}>x</button>
-        </li>
+    <ul className={classNamesTaskList} >
+      {todoList.map((task) => (
+         <Task task={task} todoList={todoList} setTodoList={setTodoList}/>
       ))}
     </ul>
   );
