@@ -9,10 +9,10 @@ const initialValues = {
 };
 
 const NewTodoTask = props => {
-  //const todoList = useContext(TodoListContext);
-  const {setTodoList,todoList} = props;
+  const { setTodoList, todoList } = props;
   const onSubmit = (values, formikBag) => {
     const newTask = {
+      id: Date.now(),
       value: values.newTask,
       isDone: false,
     };
@@ -20,6 +20,7 @@ const NewTodoTask = props => {
 
     newtodoList.push(newTask);
     setTodoList(newtodoList);
+    formikBag.resetForm();
   };
 
   return (
