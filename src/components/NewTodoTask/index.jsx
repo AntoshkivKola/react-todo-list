@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Formik, Field, Form } from 'formik';
+import { Formik, Field, Form, ErrorMessage } from 'formik';
 import { TODO_TASK_SCHEMA } from 'utils/validationSchemas';
 import styles from './NewTodoTask.module.scss';
 
@@ -35,6 +35,7 @@ const NewTodoTask = props => {
           name='newTask'
           placeholder='Enter new task'
         />
+        <ErrorMessage name='newTask' component='span' className={styles.errorMessage}/>
         <Field className={styles.add} name='submit' type='submit' value='+' />
       </Form>
     </Formik>
